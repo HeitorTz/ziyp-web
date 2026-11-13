@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Convite — Ziyp</title>
+
+<!--
+  US3.5 — página do convite. Publicada em https://ziyp.com.br/convite/ pelo
+  GitHub Pages (repositório público HeitorTz/ziyp-web, separado do app). Esta
+  é a cópia de origem: mudou aqui, republicar lá. O mesmo arquivo é publicado
+  também como `404.html`, que é o que faz o endereço por caminho funcionar
+  numa hospedagem sem regra de reescrita.
+
+  Por que ela existe: o WhatsApp só transforma em link clicável o que reconhece
+  como URL — `http`, `https` e domínios soltos. Um `ziyp://` no meio da mensagem
+  chega como texto morto. Verificado no aparelho em 05/09/2026, e não é
+  limitação do Expo Go: valeria igual no app final.
+
+  Por que é um arquivo estático, e não uma Edge Function do Supabase: a
+  tentativa por Edge Function foi feita e falhou. A plataforma reescreve o
+  `Content-Type` para `text/plain` e substitui a CSP por `default-src 'none';
+  sandbox`, de forma que o navegador mostra o código-fonte em vez da página.
+  É proteção deliberada deles para que ninguém hospede página com aparência de
+  site num endereço `*.supabase.co`. Ver TECNICO.md §3.
+
+  Não precisa de servidor — todo o comportamento desta página roda no
+  navegador de quem recebe.
+
+  O código do grupo é lido da URL, nesta ordem, para funcionar em qualquer
+  hospedagem sem depender de regra de reescrita:
+    /convite/827QGNA7TG   → caminho, é o formato final e o que o Universal Link
+                             vai casar quando o app abrir o link direto
+    /convite/#827QGNA7TG  → fragmento, funciona em host sem reescrita
+    /convite/?c=827QG...  → query, alternativa
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* Tokens da seção 7 do PROJETO.md. Não inventar cor nem raio aqui. */
+  :root{
+    --fundo:#F7F5F0; --cartao:#FFFFFF; --tinta:#1F2A24; --tinta-suave:#6B7268;
+    --tinta-fraca:#9A9C8F; --destaque:#0F6E56; --destaque-suave:#E1F5EE;
+    --destaque-forte:#085041; --borda:#E4E0D6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    background:var(--fundo);color:var(--tinta);
+    font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:20px;
+  }
+  main{width:100%;max-width:420px;display:flex;flex-direction:column;gap:20px;align-items:center}
+  .cartao{
+    background:var(--cartao);border:1px solid var(--borda);border-radius:18px;
+    padding:28px 24px;width:100%;display:flex;flex-direction:column;gap:12px;
+    align-items:center;text-align:center;
+  }
+  h1{font-size:20px;font-weight:800;line-height:1.3}
+  p{font-size:14px;font-weight:400;color:var(--tinta-suave);line-height:1.5}
+  .rotulo{font-size:12px;font-weight:700;color:var(--tinta-fraca)}
+  .codigo{
+    font-size:36px;font-weight:800;color:var(--destaque);
+    letter-spacing:2px;line-height:1.1;word-break:break-all;
+  }
+  a.botao{
+    display:flex;align-items:center;justify-content:center;
+    min-height:44px; /* alvo mínimo de toque — seção 7 */
+    background:var(--destaque);color:#FFFFFF;text-decoration:none;
+    font-size:14px;font-weight:700;border-radius:14px;padding:0 20px;width:100%;
+  }
+  .nota{
+    background:var(--destaque-suave);color:var(--destaque-forte);border-radius:14px;
+    padding:14px 16px;font-size:13px;font-weight:500;line-height:1.5;width:100%;text-align:left;
+  }
+  .rodape{font-size:12px;color:var(--tinta-fraca);text-align:center}
+  [hidden]{display:none !important}
+</style>
+</head>
+
+<body>
+<main>
+  <!-- Símbolo do zíper, variante para fundo claro — espelha src/ui/marca.tsx -->
+  <svg width="56" height="56" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+    <path d="M50 90 L50 70" stroke="#1F2A24" stroke-width="12" stroke-linecap="round"/>
+    <g transform="translate(50, 48) rotate(-36.4)">
+      <path d="M0 -2 L0 -38" stroke="#1F2A24" stroke-width="5" stroke-linecap="round"/>
+      <rect x="-12" y="-13" width="9" height="4" rx="2" fill="#1F2A24"/>
+      <rect x="-12" y="-23" width="9" height="4" rx="2" fill="#1F2A24"/>
+      <rect x="-12" y="-33" width="9" height="4" rx="2" fill="#1F2A24"/>
+    </g>
+    <g transform="translate(50, 48) rotate(36.4)">
+      <path d="M0 -2 L0 -38" stroke="#1F2A24" stroke-width="5" stroke-linecap="round"/>
+      <rect x="3" y="-13" width="9" height="4" rx="2" fill="#1F2A24"/>
+      <rect x="3" y="-23" width="9" height="4" rx="2" fill="#1F2A24"/>
+      <rect x="3" y="-33" width="9" height="4" rx="2" fill="#1F2A24"/>
+    </g>
+    <path d="M42 68 L58 68 L66 46 L34 46 Z" fill="#0F6E56" stroke="#0F6E56" stroke-width="8" stroke-linejoin="round"/>
+  </svg>
+
+  <div class="cartao" id="valido" hidden>
+    <h1>Você foi convidado para dividir uma conta</h1>
+    <p>O Ziyp divide a conta do bar por quem consumiu o quê, e cada um paga direto para quem pagou o total — via Pix, fora do app.</p>
+    <span class="rotulo">Código do grupo</span>
+    <span class="codigo" id="codigo"></span>
+    <a class="botao" id="abrir" href="#">Abrir no Ziyp</a>
+  </div>
+  <div class="nota" id="nota-valido" hidden>
+    Se o botão não abrir nada, o app ainda não está instalado neste aparelho.
+    Instale o Ziyp, abra e informe o código acima — ele funciona digitado.
+  </div>
+  <p class="rodape" id="rodape" hidden>Quem entra por convite não precisa criar conta: só nome e telefone.</p>
+
+  <div class="cartao" id="invalido" hidden>
+    <h1>Este convite não é válido</h1>
+    <p>O endereço não traz um código de convite completo. São 10 caracteres, e pode ter faltado um pedaço ao copiar o link.</p>
+  </div>
+  <div class="nota" id="nota-invalido" hidden>
+    Peça o código para quem criou o grupo. Ele funciona digitado dentro do app, sem depender deste link.
+  </div>
+</main>
+
+<script>
+  // Espelha src/domain/convite.ts e o `check` da migration 0006. Três
+  // runtimes, três cópias: app, banco e esta página. Mudou um, mude os três.
+  var ALFABETO = '23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+  var VALIDO = new RegExp('^[' + ALFABETO + ']{10}$');
+
+  function normalizar(bruto) {
+    var limpo = String(bruto || '').toUpperCase().split('').filter(function (c) {
+      return ALFABETO.indexOf(c) >= 0;
+    }).join('');
+    return VALIDO.test(limpo) ? limpo : null;
+  }
+
+  // Caminho, fragmento ou query — o que vier primeiro. Assim a página funciona
+  // em hospedagem com e sem regra de reescrita.
+  function daUrl() {
+    var partes = location.pathname.split('/').filter(Boolean);
+    return normalizar(partes[partes.length - 1])
+      || normalizar(location.hash.replace('#', ''))
+      || normalizar(new URLSearchParams(location.search).get('c'));
+  }
+
+  function mostrar(ids) {
+    ids.forEach(function (id) { document.getElementById(id).hidden = false; });
+  }
+
+  var codigo = daUrl();
+
+  if (codigo) {
+    // Só texto, nunca innerHTML: o código já passou pelo alfabeto de 32
+    // símbolos, mas usar textContent tira a questão da mesa de vez.
+    document.getElementById('codigo').textContent =
+      codigo.slice(0, 5) + '-' + codigo.slice(5);
+    document.getElementById('abrir').href = 'ziyp://convite/' + codigo;
+    mostrar(['valido', 'nota-valido', 'rodape']);
+  } else {
+    mostrar(['invalido', 'nota-invalido']);
+  }
+</script>
+</body>
+</html>
